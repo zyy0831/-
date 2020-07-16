@@ -1,19 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.7/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.js"></script>
+    <script src="2.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        html body{
+            width: 100%;
+            height: 100%;
+        }
+        .icc {
+            margin-top: 10px;
+        }
+
+        #ic {
+            padding: 12%;
+        }
+    </style>
+
 </head>
+
 <body>
-    <div>zyy
-        <div>1236738ăŽ78</div>
-        段是空间
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#">Profile</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+              </ul>
+
+        </div>
     </div>
-    <div>yh
-    <div>2132的 344 而3</div>
-    123655
+    <div class="row">
+        <div class="col-md-6">
+            <div id="zyy" style="width: 600px;height:400px;"></div>
+        </div>
+        <div class="col-md-6">.col-md-888</div>
     </div>
-    <div>j</div>
+    <div id="app">
+        <div id="ic" style="background-color: aquamarine;">
+            青涩 {{message}}
+            <input type="input">
+            <!-- <input type="button" onclick="zyyy2"> -->
+            <button onclick="zyyy2()">Copy Text</button>
+            <table style="border-top: red;">
+                <tr>
+                    <td>11</td>
+                    <td>22</td>
+                    <td>33</td>
+                </tr>
+            </table>
+        </div>
+        <el-table :data="tableData" style="width: 100%">
+            <el-table-column prop="date" label="日期" width="180">
+            </el-table-column>
+            <el-table-column prop="name" label="姓名" width="180">
+            </el-table-column>
+            <el-table-column prop="address" label="地址">
+            </el-table-column>
+        </el-table>
+        <div class="icc">
+            <div>class icc</div>
+        </div>
+        <div class="icc">class icc</div>
+    </div>
+
 </body>
+<script>
+    function zyyy2() {
+        var a= document.getElementById('zyy');
+        a.setAttribute('icc')
+    }
+    var myChart = echarts.init(document.getElementById('zyy'));
+    option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 10,
+            data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+        },
+        series: [{
+            name: '访问来源23231323',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [{
+                    value: 335,
+                    name: '直接访问'
+                },
+                {
+                    value: 310,
+                    name: '邮件营销'
+                },
+                {
+                    value: 234,
+                    name: '联盟广告'
+                },
+                {
+                    value: 135,
+                    name: '视频广告'
+                },
+                {
+                    value: 1548,
+                    name: '搜索引擎'
+                }
+            ]
+        }]
+    };
+    myChart.setOption(option);
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            tableData: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-04',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }]
+        }
+    })
+</script>
+
 </html>
