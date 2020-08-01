@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.js"></script>
-    <script src="2.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -26,42 +25,46 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
-    <link href="main.css" rel="stylesheet" type="text/css"/>
-
+    <link href="main.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-    <div class="row">
-        <div class="col-md-8">
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#">Profile</a></li>
-                <li role="presentation"><a href="#">Messages</a></li>
-              </ul>
+<div>1000</div>
+<script>
+    let div1 = document.getElementsByTagName('div')[0]
+    div1.innerText = 'time.geekbang';
+    div1.style.color = "#ff0000"
+</script>
+<br>
+<div>1000</div>
+<br>
+<div class="row">
+    <div class="col-md-8">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-6">
+        <div id="zyy" style="width: 600px;height:400px;"></div>
+    </div>
+    <div class="col-md-6">栅格布局为6</div>
+</div>
+<div id="inTxt" style="margin: 5px;">
+    <div style="background-color: aquamarine;">hello world</div>
+</div>
+<input id="firstName" type="text" value="Mickey">
+<input type="button" onclick="inJS()" value="修改内容">
+<input type="button" onclick="inStyle()" value="修改样式">
 
-        </div>
+<div id="app">
+    <div id="ic" style="background-color: aquamarine;">
+        青涩 {{message}}
+        <input type="input" v-model="message">
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div id="zyy" style="width: 600px;height:400px;"></div>
-        </div>
-        <div class="col-md-6">.col-md-888</div>
-    </div>
-    <div id="app">
-        <div id="ic" style="background-color: aquamarine;">
-            青涩 {{message}}
-            <input type="input">
-            <!-- <input type="button" onclick="zyyy2"> -->
-            <button onclick="zyyy2()">Copy Text</button>
-            <table style="border-top: red;">
-                <tr>
-                    <td>11</td>
-                    <td>22</td>
-                    <td>33</td>
-                </tr>
-            </table>
-        </div>
-        <el-table :data="tableData" style="width: 100%">
+    <!-- <el-table :data="tableData" style="width: 100%">
             <el-table-column prop="date" label="日期" width="180">
             </el-table-column>
             <el-table-column prop="name" label="姓名" width="180">
@@ -72,12 +75,26 @@
         <div class="icc">
             <div>class icc</div>
         </div>
-        <div class="icc">class icc</div>
-    </div>
-
+        <div class="icc">class icc</div> -->
+</div>
 </body>
-<script src="main.js">
-   
+<script src="main.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            tableData: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-04',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }]
+        }
+    })
 </script>
 
 </html>
